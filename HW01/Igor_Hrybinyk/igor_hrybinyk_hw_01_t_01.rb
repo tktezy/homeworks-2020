@@ -5,13 +5,12 @@ class AngleCounter
   attr_reader :hours, :minutes
 
   def initialize(hours, minutes)
-    @hours = hours >= 12 ? hours - 12 : hours
+    @hours = hours
     @minutes = minutes
   end
 
   def hours_to_angles
     result = (hour_angle - minutes_angle).abs
-    result - 360 if result >= 360
     puts result
   end
 
@@ -31,8 +30,6 @@ class AngleCounter
 end
 
 AngleCounter.new(3, 15).hours_to_angles
-AngleCounter.new(15, 15).hours_to_angles
-AngleCounter.new(13, 0).hours_to_angles
 AngleCounter.new(0, 0).hours_to_angles
 
 # Trying to access attributes with attr_reader
