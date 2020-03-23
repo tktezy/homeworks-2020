@@ -16,13 +16,13 @@ class LogsChanger
   def format_logs
     match_count = 0
     logs_for_formatting.readlines.map do |line|
-      if line.match?(LOG_FORMAT)
-        matches = line.match(LOG_FORMAT) 
-        puts "#{matches[:date]} FROM: #{matches[:ip]} TO: #{matches[:url].upcase}"
-        match_count += 1
-      end
+      next unless line.match?(LOG_FORMAT)
+
+      matches = line.match(LOG_FORMAT)
+      puts "#{matches[:date]} FROM: #{matches[:ip]} TO: #{matches[:url].upcase}"
+      match_count += 1
     end
 
-puts if match_count == 0
-    end
+    puts if match_count.zero?
+  end
 end
