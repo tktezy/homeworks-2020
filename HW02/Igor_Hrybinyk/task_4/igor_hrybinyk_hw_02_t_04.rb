@@ -4,8 +4,6 @@
 # task_4("hel2!lo") # --> {letters: 5, digits: 1}
 # task_4("wicked .. !") # --> 6 --- {letters: 6, digits: 0}
 
-require 'pry'
-
 def task_4(string)
   letters = string.scan(/[a-zA-z]/)
   digits = string.scan(/[0-9]/)

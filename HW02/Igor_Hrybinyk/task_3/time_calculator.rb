@@ -1,5 +1,4 @@
 require 'time'
-require 'pry'
 
 class TimeCalculator
   attr_reader :matching_lines

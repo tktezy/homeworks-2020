@@ -1,5 +1,3 @@
-require 'pry'
-
 class LogsChanger
   attr_reader :logs_for_formatting
 
