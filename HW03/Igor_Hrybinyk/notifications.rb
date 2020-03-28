@@ -25,7 +25,7 @@ class Notifications
   end
 
   def mentor_notifications
-    puts "You have #{@student_notifications} new notifications"
+    puts "You have #{@mentor_notifications} new notifications"
     @mentor_notifications -= 1
   end
 
