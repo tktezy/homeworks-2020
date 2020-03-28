@@ -1,15 +1,8 @@
 class Student
-  attr_reader :firstname, :lastname
+  attr_reader :name
 
- def initialize(firstname, lastname)
-    @firstname = firstname
-    @lastname = lastname
-  end
-
-  def homeworks
-  end
-
-  def submit_homework
+  def initialize(name)
+    @name = name
   end
 
 end

@@ -8,6 +8,7 @@ mentor = Mentor.new('Jack Gonsales')
 # 2) Mentor creates a homework
 Homework.new(mentor).add_homework
 # 3) Create student
+student = Student.new('Ruby Hodson')
 # 4) Mentor notify student about hw
 # 5) Student checks notifications
 # 6) Student do smth with homework
