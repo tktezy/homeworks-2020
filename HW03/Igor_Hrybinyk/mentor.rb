@@ -1,21 +1,8 @@
-require_relative 'homeworks.rb'
-
 class Mentor
-  attr_reader :firstname, :lastname
+  attr_reader :name
 
-  def initialize(firstname, lastname)
-    @firstname = firstname
-    @lastname = lastname
-  end
-
-  def add_homework
-  end
-
-  def check_notifications
-  end
-
-  def create_review
-    
+  def initialize(name)
+    @name = name
   end
 
 end
