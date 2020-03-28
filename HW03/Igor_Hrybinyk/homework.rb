@@ -6,40 +6,43 @@ class Homework
   end
 
   def add_homework
-    process_user_input
-    filename = @filename_input + " by #{@name}" + FILE_EXTENSION
-    File.open(filename, 'w+') do |file|
-      file.write(@description_input)
-    end
-    puts "Homework '#{filename}' successfully created!"
+    puts 'Enter homework name:'
+    @filename = gets.chomp + " by #{@name}" + FILE_EXTENSION
+    puts 'Now, enter task description:'
+    file_description
+    puts "Homework '#{@filename}' successfully created!"
   end
 
   def add_hw_solution
-    open_hw
+    open_file
     puts 'Add your solution:'
-    solution = gets.chomp
-    filename = @file_basename + " solution by #{@name}" + FILE_EXTENSION
-    File.open(filename, 'w+') do |file|
-      file.write(solution)
-    end
-    puts "Homework solution '#{filename}' successfully created!"
+    @filename = @file_basename + " solution by #{@name}" + FILE_EXTENSION
+    file_description
+    puts "Homework solution '#{@filename}' successfully created!"
+  end
+
+  def add_review
+    open_file
+    puts 'Wrote review: '
+    @filename = @file_basename + " review by #{@name}" + FILE_EXTENSION
+    file_description
+    puts "Homework review '#{@filename}' successfully created!"
   end
 
   private
 
-  def process_user_input
-    puts 'Pls, enter filename:'
+  def open_file
+    puts 'Which file do you need to open?'
     @filename_input = gets.chomp
-    puts 'Now, enter task description:'
-    @description_input = gets.chomp
+    @file_basename = File.basename(@filename_input).gsub(/\sby.+/, '')
+    File.open(@filename_input, 'r') do |file|
+      puts "Description:\n#{file.read}"
+    end
   end
 
-  def open_hw
-    puts 'Which HW do you need to open?'
-    @filename_input = gets.chomp
-    @file_basename = File.basename(@filename_input).gsub(/\sby\s.+\.txt/, '')
-    File.open(@filename_input, 'r') do |file|
-      puts "HW description:\n#{file.read}"
+  def file_description
+    File.open(@filename, 'w+') do |file|
+      file.write(gets.chomp)
     end
   end
 end
