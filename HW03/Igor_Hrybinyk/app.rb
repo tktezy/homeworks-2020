@@ -21,7 +21,8 @@ puts "#{student.name} (student):"
 Notifications.instance.student_notifications
 
 # 6) Student do smth with homework
-
+read_hw = Homework.new(student)
+read_hw.add_hw_solution
 # 7) Mentor checks student notifications
 
 # 8) Mentor write some review
