@@ -1,48 +1,51 @@
 require 'pry'
 class Homework
   FILE_EXTENSION = '.txt'.freeze
-  def initialize(mentor)
-    @name = mentor.name
-  end
 
-  def add_homework
+  def self.add_homework(mentor_name)
     puts 'Enter homework name:'
-    @filename = gets.chomp + " by #{@name}" + FILE_EXTENSION
+    @filename = gets.chomp + " by #{mentor_name}" + FILE_EXTENSION
     puts 'Now, enter task description:'
-    file_description
+    input_file_content
     puts "Homework '#{@filename}' successfully created!"
   end
 
-  def add_hw_solution
+  def self.add_hw_solution(student_name)
     open_file
     puts 'Add your solution:'
-    @filename = @file_basename + " solution by #{@name}" + FILE_EXTENSION
-    file_description
+    @filename = @file_basename + " solution by #{student_name}" + FILE_EXTENSION
+    input_file_content
     puts "Homework solution '#{@filename}' successfully created!"
   end
 
-  def add_review
+  def self.add_review(mentor_name)
     open_file
-    puts 'Wrote review: '
-    @filename = @file_basename + " review by #{@name}" + FILE_EXTENSION
-    file_description
+    puts 'Write review: '
+    @filename = @file_basename + " review by #{mentor_name}" + FILE_EXTENSION
+    input_file_content
     puts "Homework review '#{@filename}' successfully created!"
   end
 
-  private
-
-  def open_file
+  def self.open_file
     puts 'Which file do you need to open?'
-    @filename_input = gets.chomp
+    check_file_existence
     @file_basename = File.basename(@filename_input).gsub(/\sby.+/, '')
     File.open(@filename_input, 'r') do |file|
       puts "Description:\n#{file.read}"
     end
   end
 
-  def file_description
+  def self.input_file_content
     File.open(@filename, 'w+') do |file|
       file.write(gets.chomp)
+    end
+  end
+
+  def self.check_file_existence
+    loop do
+      @filename_input = gets.chomp
+      puts 'Wrong name, try again' unless File.exist?(@filename_input)
+      break if File.exist?(@filename_input)
     end
   end
 end

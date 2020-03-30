@@ -10,23 +10,22 @@ class Notifications
   end
 
   def notify_student
-    puts "Student notified"
+    puts 'Student notified'
     @student_notifications += 1
   end
 
   def student_notifications
     puts "You have #{@student_notifications} new notifications"
-    @student_notifications -= 1
+    @student_notifications = 0
   end
 
   def notify_mentor
-    puts "Mentor notified"
+    puts 'Mentor notified'
     @mentor_notifications += 1
   end
 
   def mentor_notifications
     puts "You have #{@mentor_notifications} new notifications"
-    @mentor_notifications -= 1
+    @mentor_notifications = 0
   end
-
 end

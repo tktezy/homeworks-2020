@@ -3,35 +3,35 @@ require_relative 'student.rb'
 require_relative 'homework.rb'
 require_relative 'notifications.rb'
 
- # 1) Create mentor
+def indent_line
+  puts
+end
+
+# 1) Create mentor
 mentor = Mentor.new('Jack')
-puts "#{mentor.name} (mentor):"
+puts "#{mentor.mentor_name} (mentor):"
 
- # 2) Mentor creates a homework
+# 2) Mentor creates a homework
 puts 'Creating HW:'
-Homework.new(mentor).add_homework
+mentor.create_homework
+indent_line
 
- # 3) Create student
+# 3) Create student
 student = Student.new('Ruby')
+puts "#{student.student_name} (student):"
 
- # 4) Mentor notify student about hw
-Notifications.instance.notify_student
-puts
-
- # 5) Student checks notifications
-puts "#{student.name} (student):"
+# 4) Student checks notifications
 Notifications.instance.student_notifications
 
- # 6) Student do smth with homework
+# 5) Student do smth with homework
 puts 'Opening HW:'
-Homework.new(student).add_hw_solution
-Notifications.instance.notify_mentor
-puts
+student.do_homework
+indent_line
 
- # 7) Mentor checks student notifications
-puts "#{mentor.name} (mentor):"
+# 6) Mentor checks student notifications
+puts "#{mentor.mentor_name} (mentor):"
 Notifications.instance.mentor_notifications
 
- # 8) Mentor write some review
+# 7) Mentor write some review
 puts 'Writing review:'
-Homework.new(mentor).add_review
+mentor.write_review
