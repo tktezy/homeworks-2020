@@ -15,4 +15,8 @@ class Mentor
   def write_review
     Homework.add_review(mentor_name)
   end
+
+  def create_hw_directory
+    Dir.mkdir('homeworks') unless Dir.exist?('homeworks')
+  end
 end

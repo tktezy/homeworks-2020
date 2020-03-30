@@ -13,6 +13,7 @@ puts "#{mentor.mentor_name} (mentor):"
 
 # 2) Mentor creates a homework
 puts 'Creating HW:'
+mentor.create_hw_directory
 mentor.create_homework
 indent_line
 

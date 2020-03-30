@@ -1,6 +1,7 @@
 require 'pry'
 class Homework
   FILE_EXTENSION = '.txt'.freeze
+  HOMEWORKS_DIR_PATH = 'homeworks/'.freeze
 
   def self.add_homework(mentor_name)
     puts 'Enter homework name:'
@@ -30,13 +31,13 @@ class Homework
     puts 'Which file do you need to open?'
     check_file_existence
     @file_basename = File.basename(@filename_input).gsub(/\sby.+/, '')
-    File.open(@filename_input, 'r') do |file|
+    File.open(HOMEWORKS_DIR_PATH + @filename_input, 'r') do |file|
       puts "Description:\n#{file.read}"
     end
   end
 
   def self.input_file_content
-    File.open(@filename, 'w+') do |file|
+    File.open(HOMEWORKS_DIR_PATH + @filename, 'w+') do |file|
       file.write(gets.chomp)
     end
   end
@@ -44,8 +45,10 @@ class Homework
   def self.check_file_existence
     loop do
       @filename_input = gets.chomp
-      puts 'Wrong name, try again' unless File.exist?(@filename_input)
-      break if File.exist?(@filename_input)
+      unless File.exist?(HOMEWORKS_DIR_PATH + @filename_input)
+        puts 'Wrong name, try again'
+      end
+      break if File.exist?(HOMEWORKS_DIR_PATH + @filename_input)
     end
   end
 end
