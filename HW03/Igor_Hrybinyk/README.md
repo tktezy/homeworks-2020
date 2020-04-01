@@ -1,7 +1,7 @@
-## Desctiption
+## Description
 This application describe the interaction between students and mentors.
 
-## Instalation
+## Installation
 Clone the repository.
 ```
 Install ruby (2.6.3)

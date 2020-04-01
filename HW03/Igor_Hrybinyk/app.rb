@@ -3,7 +3,6 @@ require_relative 'observers/mentor_observer.rb'
 require_relative 'lib/mentor.rb'
 require_relative 'lib/student.rb'
 require_relative 'lib/homework.rb'
-require_relative 'lib/notifications.rb'
 
 def indent_line
   puts
@@ -46,8 +45,8 @@ indent_line
 
 # 6) Mentor write some review
 puts 'Writing review:'
-mentor.write_review('Star', 'hw1 by Jojo solution by Star', 'review')
-mentor.write_review('Platinum', 'hw1 by Jojo solution by Platinum', 'reiew')
+mentor.write_review(st1, 'hw1 by Jojo solution by Star', 'review')
+mentor.write_review(st2, 'hw1 by Jojo solution by Platinum', 'review')
 indent_line
 
 st1.check_notifications

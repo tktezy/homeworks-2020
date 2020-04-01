@@ -11,15 +11,14 @@ class Mentor
 
   def create_homework(hw_filename, task)
     Homework.add_homework(mentor_name, hw_filename, task)
-
-    notify_students
+    notify_students(students)
   end
 
   def write_review(student, hw_filename, review)
     Homework.add_review(hw_filename, review)
 
     @mentor_notify_count -= 1
-    notify_students(student)
+    notify_students([student])
   end
 
   def create_hw_directory
