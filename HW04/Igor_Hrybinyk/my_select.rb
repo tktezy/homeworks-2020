@@ -3,8 +3,11 @@ class Array
     return dup unless block_given?
 
     result = []
-    for value in self
-      result << value if yield(value)
+    i = 0
+
+    while i < size
+      result << self[i] if yield(self[i])
+      i += 1
     end
     result
   end
