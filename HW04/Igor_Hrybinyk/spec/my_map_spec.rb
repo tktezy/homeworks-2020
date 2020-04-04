@@ -1,4 +1,4 @@
-require_relative '../my_map.rb'
+require_relative '../my_methods.rb'
 
 RSpec.describe Array do
   subject { described_class.new([1, 2, 3, 4]) }
