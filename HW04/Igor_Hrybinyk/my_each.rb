@@ -1,6 +1,6 @@
 class Array
   def my_each
-    return dup unless block_given?
+    return dup.to_enum unless block_given?
 
     i = 0
 

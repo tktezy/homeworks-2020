@@ -1,6 +1,6 @@
 class Array
   def my_select
-    return dup unless block_given?
+    return dup.to_enum unless block_given?
 
     result = []
     i = 0
