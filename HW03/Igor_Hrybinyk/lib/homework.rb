@@ -2,16 +2,16 @@ class Homework
   FILE_EXTENSION = '.txt'.freeze
   HOMEWORKS_DIR_PATH = 'homeworks/'.freeze
 
-  def self.add_homework(mentor_name, hw_filename, task)
-    @filename = hw_filename + " by #{mentor_name}" + FILE_EXTENSION
+  def self.add_homework(name, hw_filename, task)
+    @filename = hw_filename + " by #{name}" + FILE_EXTENSION
 
     input_file_content(task)
     puts "Homework '#{@filename}' successfully created!"
   end
 
-  def self.add_hw_solution(student_name, hw_filename, solution)
+  def self.add_hw_solution(name, hw_filename, solution)
     open_file(hw_filename)
-    @filename = hw_filename + " solution by #{student_name}" + FILE_EXTENSION
+    @filename = hw_filename + " solution by #{name}" + FILE_EXTENSION
 
     input_file_content(solution)
     puts "Homework solution '#{@filename}' successfully created!"
