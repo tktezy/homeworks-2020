@@ -7,21 +7,21 @@ RSpec.describe Array do
     let(:result) { [] }
     let(:expected_result) { [2, 3, 4, 5, 6] }
 
-    context 'when eql to default each' do
-      it 'its ok' do
+    context 'works as default each' do
+      it 'returns valid values' do
         subject.my_each { |elem| result << elem + 1 }
         expect(result).to eql(expected_result)
       end
     end
 
-    context 'when objects id eql?' do
-      it 'its ok' do
+    context 'when there is no object created' do
+      it 'has the same object id' do
         expect(subject.my_each { |v| v }.object_id).to eql(subject.object_id)
       end
     end
 
     context 'when there is no block, enum?' do
-      it 'its ok' do
+      it 'works with Enum class' do
         expect(subject.my_each.is_a?(Enumerator)).to be true
       end
     end
