@@ -11,10 +11,10 @@ module MentorObserver
     @mentors.delete(mentor)
   end
 
-  def notify_mentors
+  def notify_mentors(filename)
     mentors.each do |mentor|
       mentor.update_mentor
-      mentor.mentor_notify_count += 1
+      mentor.notifications << filename + " from student #{name}"
     end
   end
 end

@@ -25,8 +25,8 @@ mentor.create_homework('hw1', 'task 1')
 indent_line
 
 # 3) Students check notifications
-st1.check_notifications
-st2.check_notifications
+st1.read_notifications
+st2.read_notifications
 indent_line
 
 # 4) Student do smth with homework
@@ -35,12 +35,8 @@ st1.do_homework('hw1 by Jojo', 'solution')
 st2.do_homework('hw1 by Jojo', 'solution')
 indent_line
 
-st1.check_notifications
-st2.check_notifications
-indent_line
-
 # 5) Mentor check notifications
-mentor.check_notifications
+mentor.read_notifications
 indent_line
 
 # 6) Mentor write some review
@@ -49,5 +45,6 @@ mentor.write_review(st1, 'hw1 by Jojo solution by Star', 'review')
 mentor.write_review(st2, 'hw1 by Jojo solution by Platinum', 'review')
 indent_line
 
-st1.check_notifications
-st2.check_notifications
+st1.read_notifications
+indent_line
+st2.read_notifications

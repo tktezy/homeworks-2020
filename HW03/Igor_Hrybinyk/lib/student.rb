@@ -1,26 +1,31 @@
 class Student
   include MentorObserver
   attr_reader :name
-  attr_accessor :mentors, :student_notify_count
+  attr_accessor :mentors, :notifications
 
-  def initialize(name, student_notify_count = 0)
+  def initialize(name)
     super()
     @name = name
-    @student_notify_count = student_notify_count
+    @notifications = []
   end
 
   def do_homework(hw_filename, solution)
     Homework.add_hw_solution(name, hw_filename, solution)
 
-    @student_notify_count -= 1
-    notify_mentors
+    notify_mentors(hw_filename)
   end
 
-  def update_student
+  def notify_student
     puts "Student #{name} notified!"
   end
 
-  def check_notifications
-    puts "#{name}, you have #{student_notify_count} notifications!"
+  def read_notifications
+    if @notifications != []
+      puts "#{name}, check theese files:"
+      @notifications.each { |notification| puts notification }
+      @notifications.clear
+    else
+      puts "#{name}, you have 0 notifications"
+    end
   end
 end
