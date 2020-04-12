@@ -1,6 +1,6 @@
 class Array
   def my_each
-    return dup.to_enum unless block_given?
+    return to_enum unless block_given?
 
     i = 0
 
@@ -12,7 +12,7 @@ class Array
   end
 
   def my_map
-    return dup.to_enum unless block_given?
+    return to_enum unless block_given?
 
     result = []
     i = 0
@@ -25,7 +25,7 @@ class Array
   end
 
   def my_select
-    return dup.to_enum unless block_given?
+    return to_enum unless block_given?
 
     result = []
     i = 0
